@@ -19,6 +19,15 @@ from typing import List
 
 from src import database
 from src import utils
+require('dotenv').config();
+const { Client, GatewayIntentBits } = require("discord.js");
+
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+});
+
+const token = process.env.BOT_TOKEN;
+client.login(token);
 
 bot = discord.Client(intents=discord.Intents.default())
 tree = app_commands.CommandTree(bot)
